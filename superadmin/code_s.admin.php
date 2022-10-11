@@ -78,7 +78,7 @@ if(isset($_POST['add_admin']))
 
         if(mysqli_num_rows($checkemail_run) > 0)
         {
-            $_SESSION['message'] = "Email already exists";
+            $_SESSION['message'] = "Email already exists!";
             header("Location: add_s.admin.php");
             exit(0);
         }
@@ -103,8 +103,8 @@ if(isset($_POST['add_admin']))
     }
     else
     {
-        $_SESSION['message'] = "Password and Confirm Password does not match";
-        header("Location: add_s.user.php");
+        $_SESSION['message'] = "Password and Confirm Password does not match!";
+        header("Location: add_s.admin.php");
         exit(0);
     }
     
