@@ -8,7 +8,7 @@
                                 Dashboard
                             </a>
                         <div class="sb-sidenav-menu-heading">MANAGE</div>
-                                <a class="nav-link" href="view_admin.php">
+                                <a class="nav-link" href="view_s.admin.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 ADMIN
                             </a>
@@ -17,7 +17,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        TREASURER
+                        SUPERADMIN
                     </div>
                 </nav>
             </div>

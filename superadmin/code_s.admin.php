@@ -11,13 +11,13 @@ if(isset($_POST['user_delete']))
     if($query_run)
     {
         $_SESSION['message'] = "User Deleted Successfully";
-        header('Location: view_register.php');
+        header('Location: view_s.admin.php');
         exit(0);
     }
     else
     {
         $_SESSION['message'] = "Something went wrong!";
-        header('Location: view_register.php');
+        header('Location: view_s.admin.php');
         exit(0);
     }
 }
@@ -36,29 +36,27 @@ if(isset($_POST['logout_btn']))
 }
 
 
-
-if(isset($_POST['update_btn']))
+if(isset($_POST['adminupdate_btn']))
 {
     $user_id = $_POST['user_id'];
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $role_as = $_POST['role_as'];
-    $status = $_POST['status'] == true ? '1':'0';
+    $role_as = 1;
+    $status = $_POST['status'];
 
-    $query = "UPDATE users SET fname='$fname',lname='$lname',email='$email',password='$password', role_as='$role_as',status='$status' WHERE id='$user_id' ";
+    $query = "UPDATE users SET fname='$fname',lname='$lname',email='$email',password='$password', user_type='$role_as',status='$status' WHERE id='$user_id' ";
     $query_run = mysqli_query($con,$query);
 
     if($query_run)
     {
         $_SESSION['message'] = "Updated Successfully";
-        header('Location: view_register.php');
+        header('Location: view_s.admin.php');
         exit(0);
     }
-
-
 }
+
 
 
 
@@ -70,7 +68,7 @@ if(isset($_POST['add_admin']))
     $email = $_POST['email'];
     $password = $_POST['password'];
     $confirm_password = $_POST['cpassword'];
-    $usertype = 1;
+    $usertype = '1';
     $status = $_POST['status'];
 
     if($password == $confirm_password){
@@ -81,7 +79,7 @@ if(isset($_POST['add_admin']))
         if(mysqli_num_rows($checkemail_run) > 0)
         {
             $_SESSION['message'] = "Email already exists";
-            header("Location: view_admin.php.php");
+            header("Location: add_s.admin.php");
             exit(0);
         }
         else{
@@ -91,13 +89,13 @@ if(isset($_POST['add_admin']))
             if($query_run)
             {
                 $_SESSION['message'] = "User Added Successfully";
-                header("Location: view_admin.php");
+                header("Location: view_s.admin.php");
                 exit(0);
             }
             else
             {
                 $_SESSION['message'] = "ERROR! SOMETHING WENT WRONG!";
-                header("Location: view_admin.php");
+                header("Location: view_s.admin.php");
                 exit(0);
             }
         }
@@ -106,14 +104,14 @@ if(isset($_POST['add_admin']))
     else
     {
         $_SESSION['message'] = "Password and Confirm Password does not match";
-        header("Location: add_user.php");
+        header("Location: add_s.user.php");
         exit(0);
     }
     
 }
 else
 {
-    header("Location: view_register.php");
+    header("Location: view_s.admin.php");
     exit(0);
 }
 

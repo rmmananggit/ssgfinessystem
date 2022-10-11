@@ -13,7 +13,7 @@ include('includes/header.php');
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <form action="admincode.php" method="POST">
+        <form action="code_s.admin.php" method="POST">
           <button type="submit" name="logout_btn" class="btn btn-danger">Logout</button>
         </form>
       </div>
@@ -35,7 +35,7 @@ include('includes/header.php');
             <div class="card">
                 <div class="card-header">
                     <h4>Registered Admin Account/s
-                        <a href="add_admin.php" class="btn btn-primary float-end"> Add Admin Account</a>
+                        <a href="add_s.admin.php" class="btn btn-primary float-end"> Add Admin Account</a>
                     </h4>
                 </div>
                 <div class="card-body">
@@ -46,14 +46,31 @@ include('includes/header.php');
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Email</th>
+                                <th>Password</th>
                                 <th>Role</th>
+                                <th>Status</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $query = "SELECT * FROM `users` WHERE `user_type` = 1";
+                            $query = "SELECT
+                            users.id, 
+                            users.fname, 
+                            users.lname, 
+                            users.email, 
+                            users.`password`, 
+                            users.user_type, 
+                            `status`.`status`
+                        FROM
+                            users
+                            INNER JOIN
+                            `status`
+                            ON 
+                                users.`status` = `status`.status_id
+                        WHERE
+                            users.user_type = 1";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -65,6 +82,7 @@ include('includes/header.php');
                                         <td><?= $row['fname']; ?></td>
                                         <td><?= $row['lname']; ?></td>
                                         <td><?= $row['email']; ?></td>
+                                        <td><?= $row['password']; ?></td>
                                         <td>
                                             <?php
                                             if($row['user_type'] == '1'){
@@ -72,9 +90,10 @@ include('includes/header.php');
                                             }
                                             ?>
                                         </td>
-                                        <td> <a href="edit_register.php?id=<?=$row['id'];?>" class="btn btn-success">Edit</a></td>
+                                        <td><?=$row['status']; ?></td>
+                                        <td> <a href="edit_s.admin.php?id=<?=$row['id'];?>" class="btn btn-success">Edit</a></td>
                                         <td>
-                                            <form action="admincode.php" method="POST">
+                                            <form action="code_s.admin.php" method="POST">
                                                 <button type="submit" name="user_delete" value="<?=$row['id']; ?>" class="btn btn-danger">Delete</button>
                                             </form>
                                         </td>
