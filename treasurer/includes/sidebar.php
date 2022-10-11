@@ -32,7 +32,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        SUPER ADMIN
+                        TREASURER
                     </div>
                 </nav>
             </div>
