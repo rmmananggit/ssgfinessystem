@@ -28,8 +28,8 @@ if(isset($_POST['login_btn']))
 
         if( $_SESSION['auth_role'] == '1')
         {
-            $_SESSION['message'] = "Welcome Administrator";
-            header("Location: admin/index.php");
+            $_SESSION['message'] = "Welcome Super Admin";
+            header("Location: superadmin/superadmin.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '0')
