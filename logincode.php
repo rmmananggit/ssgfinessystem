@@ -15,11 +15,11 @@ if(isset($_POST['login_btn']))
         foreach($login_query_run as $data){
             $user_id = $data['id'];
             $user_name = $data['fname'].' '.$data['lname'];
-            $user_type = $data['user_type'];
+            $role_as = $data['user_type'];
         }
 
         $_SESSION['auth'] = true;
-        $_SESSION['auth_role'] = "$user_type";
+        $_SESSION['auth_role'] = "$role_as";
         $_SESSION['auth_user'] = [
             'user_id' =>$user_id,
             'user_name' =>$user_name,
