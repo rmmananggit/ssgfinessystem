@@ -10,9 +10,9 @@ if(!isset($_SESSION['auth']))
 }
 else
 {
-    if ($_SESSION['auth_role'] != "2")
+    if ($_SESSION['auth_role'] != "5")
     {
-        $_SESSION['message'] = "You are not authorized as ADMIN";
+        $_SESSION['message'] = "You are not authorized as TREASURER";
         header("Location: ../login.php");
         exit(0);
     }

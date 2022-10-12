@@ -14,7 +14,7 @@ include('includes/header.php');
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <form action="admincode.php" method="POST">
+        <form action="code_s.admin.php" method="POST">
           <button type="submit" name="logout_btn" class="btn btn-danger">Logout</button>
         </form>
       </div>
@@ -71,17 +71,23 @@ include('includes/header.php');
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                    <label for="">Password</label>
-                                    <input type="text" name="password" value="<?= $user['password']; ?>" class="form-control">
-                                </div>
-
-                                <div class="col-md-6 mb-3">
                                     <label for="">Status</label>
                                     <select name="status" required class="form-control">
                                         <option value="1" <?= $user['status'] == '1' ? 'selected' :'' ?> >Active</option>
                                         <option value="2" <?= $user['status'] == '2' ? 'selected' :'' ?> >Inactive</option>
                                     </select>
                                 </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="">Password</label>
+                                    <input type="text" name="password" value="<?= $user['password']; ?>" class="form-control">
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="">Confirm Password</label>
+                                    <input type="text" name="cpassword" value="<?= $user['password']; ?>" class="form-control">
+                                </div>
+
                                 <div class="col-md-12 mb-3">
                                     <button type="submit" name="adminupdate_btn" class="btn btn-primary float-end">Update</button>
                                 </div>

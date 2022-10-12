@@ -24,7 +24,7 @@ include('includes/header.php');
         <h4 class="mt-4">Student</h4>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active"> Dashboard</li>
-            <li class="breadcrumb-item"> User</li>
+            <li class="breadcrumb-item"> Student</li>
         </ol>
     <div class="row">
 
@@ -34,7 +34,7 @@ include('includes/header.php');
             
             <div class="card">
                 <div class="card-header">
-                    <h4>Registered Student
+                    <h4>Student
                         <a href="add_student.php" class="btn btn-primary float-end"> Add User</a>
                     </h4>
                 </div>
@@ -42,16 +42,29 @@ include('includes/header.php');
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>Id</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Email</th>
-                                <th>Role</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $query = "SELECT * FROM `users` WHERE `role_as` = 0";
+                            $query = $query = "SELECT 
+                            users.fname, 
+                            users.lname, 
+                            users.email, 
+                            users.`password`, 
+                            users.user_type, 
+                            `status`.`status`
+                        FROM
+                            users
+                            INNER JOIN
+                            `status`
+                            ON 
+                                users.`status` = `status`.status_id
+                        WHERE
+                            users.user_type = 3";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -59,17 +72,10 @@ include('includes/header.php');
                                 {
                                     ?>
                                     <tr>
-                                        <td><?= $row['id']; ?></td>
                                         <td><?= $row['fname']; ?></td>
                                         <td><?= $row['lname']; ?></td>
                                         <td><?= $row['email']; ?></td>
-                                        <td>
-                                            <?php
-                                            if($row['role_as'] == '0'){
-                                                echo 'Student';
-                                            }
-                                            ?>
-                                        </td>
+                                        <td><?= $row['status']; ?></td>
                                     </tr>
                                     <?php
                                 }

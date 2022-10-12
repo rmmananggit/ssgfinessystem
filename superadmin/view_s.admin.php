@@ -70,7 +70,7 @@ include('includes/header.php');
                             ON 
                                 users.`status` = `status`.status_id
                         WHERE
-                            users.user_type = 1";
+                            users.user_type = 2";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -85,7 +85,7 @@ include('includes/header.php');
                                         <td><?= $row['password']; ?></td>
                                         <td>
                                             <?php
-                                            if($row['user_type'] == '1'){
+                                            if($row['user_type'] == '2'){
                                                 echo 'Admin';
                                             }
                                             ?>

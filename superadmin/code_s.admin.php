@@ -43,7 +43,7 @@ if(isset($_POST['adminupdate_btn']))
     $lname = $_POST['lname'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $role_as = 1;
+    $role_as = 2;
     $status = $_POST['status'];
 
     $query = "UPDATE users SET fname='$fname',lname='$lname',email='$email',password='$password', user_type='$role_as',status='$status' WHERE id='$user_id' ";

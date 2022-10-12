@@ -32,19 +32,30 @@ if(isset($_POST['login_btn']))
             header("Location: superadmin/superadmin.php");
             exit(0);
         }
-        elseif( $_SESSION['auth_role'] == '0')
+        elseif( $_SESSION['auth_role'] == '2')
+        {
+            $_SESSION['message'] = "Welcome!";
+            header("Location: #");
+            exit(0);
+        }
+        elseif( $_SESSION['auth_role'] == '3')
         {
             $_SESSION['message'] = "Welcome!";
             header("Location: index.php");
             exit(0);
         }
-        elseif( $_SESSION['auth_role'] == '2')
+        elseif( $_SESSION['auth_role'] == '4')
+        {
+            $_SESSION['message'] = "Welcome!";
+            header("Location: #");
+            exit(0);
+        }
+        elseif( $_SESSION['auth_role'] == '5')
         {
             $_SESSION['message'] = "Welcome!";
             header("Location: treasurer/index.php");
             exit(0);
         }
-
     }
     else
     {
