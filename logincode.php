@@ -34,8 +34,8 @@ if(isset($_POST['login_btn']))
         }
         elseif( $_SESSION['auth_role'] == '2')
         {
-            $_SESSION['message'] = "Welcome!";
-            header("Location: #");
+            $_SESSION['message'] = "Welcome Administrator!";
+            header("Location: admin/index.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '3')
