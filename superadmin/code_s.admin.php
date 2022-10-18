@@ -68,7 +68,7 @@ if(isset($_POST['add_admin']))
     $email = $_POST['email'];
     $password = $_POST['password'];
     $confirm_password = $_POST['cpassword'];
-    $usertype = '1';
+    $usertype = '2';
     $status = $_POST['status'];
 
     if($password == $confirm_password){
