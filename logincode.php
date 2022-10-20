@@ -40,20 +40,26 @@ if(isset($_POST['login_btn']))
         }
         elseif( $_SESSION['auth_role'] == '3')
         {
-            $_SESSION['message'] = "Welcome!";
+            $_SESSION['message'] = "Welcome Student!";
             header("Location: index.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '4')
         {
-            $_SESSION['message'] = "Welcome!";
-            header("Location: #");
+            $_SESSION['message'] = "Welcome Secretary!";
+            header("Location: secretary/index.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '5')
         {
             $_SESSION['message'] = "Welcome!";
             header("Location: treasurer/index.php");
+            exit(0);
+        }
+        elseif( $_SESSION['auth_role'] == '6')
+        {
+            $_SESSION['message'] = "Welcome!";
+            header("Location: parent/index.php");
             exit(0);
         }
     }
