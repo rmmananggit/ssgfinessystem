@@ -2,7 +2,7 @@
 session_start();
 include('admin/config/dbcon.php');
 
-if(isset($_POST['login_btn']))
+if(isset($_POST['login_btn2']))
 {
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
@@ -26,13 +26,7 @@ if(isset($_POST['login_btn']))
             'user_email' =>$user_email,
         ];
 
-        if( $_SESSION['auth_role'] == '1')
-        {
-            $_SESSION['message'] = "Welcome Super Admin";
-            header("Location: superadmin/superadmin.php");
-            exit(0);
-        }
-        elseif( $_SESSION['auth_role'] == '2')
+        if( $_SESSION['auth_role'] == '2')
         {
             $_SESSION['message'] = "Welcome Administrator!";
             header("Location: admin/index.php");

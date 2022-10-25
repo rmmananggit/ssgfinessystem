@@ -21,24 +21,6 @@ include('includes/header.php');
   </div>
 </div>
 
-<!-- UPDATE FINE -->
-<div class="modal fade" id="finemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        </button>
-      </div>
-      <div class="modal-body"> TOTAL FINE IS:
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <form action="code.php" method="POST">
-          <button type="submit" name="logout_btn" class="btn btn-primary">Update</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
     <div class="container-fluid px-4">
         <h4 class="mt-4">Penalty</h4>
         <ol class="breadcrumb mb-4">
@@ -53,7 +35,7 @@ include('includes/header.php');
             
             <div class="card">
                 <div class="card-header">
-                    <h4>Student
+                    <h4>Student <a href="" class="btn btn-primary float-end"> Add Student Fines</a>
                     </h4>
                 </div>
                 <div class="card-body">
@@ -63,9 +45,8 @@ include('includes/header.php');
                                 <th>Id</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Total Fine/s</th>
-                                <th>Update</th>
+                                <th>Section</th>
+                                <th>ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -81,9 +62,8 @@ include('includes/header.php');
                                         <td><?= $row['id']; ?></td>
                                         <td><?= $row['fname']; ?></td>
                                         <td><?= $row['lname']; ?></td>
-                                        <td><?= $row['email']; ?></td>
-                                        <td>BETA</td>
-                                        <td><a type="button" class="btn btn-secondary" data-toggle="modal" data-target="#finemodal">Update</a></td>
+                                        <td>METADATA</td>
+                                        <td> <a href="manage_fee.php?id=<?=$row['id'];?>" class="btn btn-success">View</a></td>
                                     </tr>
                                     <?php
                                 }

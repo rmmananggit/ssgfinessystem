@@ -14,7 +14,7 @@ include('includes/header.php');
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <form action="code_s.admin.php" method="POST">
+        <form action="code.php" method="POST">
           <button type="submit" name="logout_btn" class="btn btn-danger">Logout</button>
         </form>
       </div>
@@ -26,8 +26,8 @@ include('includes/header.php');
         <h4 class="mt-4">Users</h4>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active"> Dashboard</li>
-            <li class="breadcrumb-item active"> Admin</li>
-            <li class="breadcrumb-item"> Edit Admin</li>
+            <li class="breadcrumb-item active"> User</li>
+            <li class="breadcrumb-item"> Edit User</li>
             
         </ol>
         <div class="row">
@@ -35,7 +35,7 @@ include('includes/header.php');
                 <div class="card">
                     <div class="card-header">
                     <h4>Edit User
-                            <a href="view_s.admin.php" class="btn btn-danger float-end">BACK</a>
+                            <a href="penalty.php" class="btn btn-danger float-end">BACK</a>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -52,7 +52,7 @@ include('includes/header.php');
                                 foreach($users_run as $user)
                                 {
                              ?>
-                        <form action="code_s.admin.php" method="POST">
+                        <form action="code.php" method="POST">
                             <input type="hidden" name="user_id" value="<?=$user['id'];?>">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
@@ -71,25 +71,18 @@ include('includes/header.php');
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                    <label for="">Status</label>
-                                    <select name="status" required class="form-control">
-                                        <option value="1" <?= $user['status'] == '1' ? 'selected' :'' ?> >Active</option>
-                                        <option value="2" <?= $user['status'] == '2' ? 'selected' :'' ?> >Inactive</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6 mb-3">
                                     <label for="">Password</label>
-                                    <input type="text" name="password" value="<?= $user['password']; ?>" class="form-control">
+                                    <input type="text" name="password" class="form-control">
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                    <label for="">Confirm Password</label>
-                                    <input type="text" name="cpassword" value="<?= $user['password']; ?>" class="form-control">
+                                    <label for="">Fine</label>
+                                    <input type="text" name="fines"  value="<?= $user['fines']; ?>" class="form-control">
                                 </div>
+
 
                                 <div class="col-md-12 mb-3">
-                                    <button type="submit" name="adminupdate_btn" class="btn btn-primary float-end">Update</button>
+                                    <button type="submit" name="update_btn" class="btn btn-primary">Update</button>
                                 </div>
                             </div>
                         </form>
