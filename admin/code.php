@@ -73,9 +73,8 @@ if(isset($_POST['add_student']))
     $mobile = $_POST['mobilenumber'];
     $fines = "0";
     $balance = "0";
-    $user_role_id = "2";
-    $user_position_id = "5";
-    $user_status_id= "1";
+    $user_role_id = $_POST['role_as'];
+    $user_status_id= $_POST['status'];
     $password = "Password@123";
 
 
@@ -102,7 +101,7 @@ if(isset($_POST['add_student']))
         if(mysqli_num_rows($checkemail_run) > 0)
         {
             $_SESSION['message'] = "Email already exists";
-            header("Location: student.php");
+            header("Location: user.php");
             exit(0);
         }
         else{
@@ -111,14 +110,14 @@ if(isset($_POST['add_student']))
 
             if($query_run)
             {
-                $_SESSION['message'] = "Student Added Successfully";
-                header("Location: student.php");
+                $_SESSION['message'] = "User Added Successfully";
+                header("Location: user.php");
                 exit(0);
             }
             else
             {
                 $_SESSION['message'] = "ERROR! SOMETHING WENT WRONG!";
-                header("Location: student.php");
+                header("Location: user.php");
                 exit(0);
             }
         }
@@ -128,7 +127,7 @@ if(isset($_POST['add_student']))
 }
 else
 {
-    header("Location: student.php");
+    header("Location: user.php");
     exit(0);
 }
 

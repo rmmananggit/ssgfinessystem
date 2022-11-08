@@ -35,7 +35,7 @@ include('includes/header.php');
                 <div class="card">
                     <div class="card-header">
                     <h4>Personal Information
-                            <a href="student.php" class="btn btn-danger float-end"><i class="fa-sharp fa-solid fa-left-long"></i></a>
+                            <a href="user.php" class="btn btn-danger float-end"><i class="fa-sharp fa-solid fa-left-long"></i></a>
                         </h4>
                     </div>
                     <div class="card-body">

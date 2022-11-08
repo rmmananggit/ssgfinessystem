@@ -23,46 +23,48 @@ include('includes/header.php');
 
 
 <div class="container-fluid px-4">
-                        <h1 class="mt-4">Student</h1>
+                        <h1 class="mt-4">Announcement</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Student</li>
+                            <li class="breadcrumb-item active">Manage Announcement</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                List of Students
+                                List of Announcement
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Student I.D</th>
-                                            <th>First Name</th>
-                                            <th>Middle Name</th>
-                                            <th>Last Name</th>
-                                            <th>Action</th>
+                                            <th>Author (Position)</th>
+                                            <th>Message</th>
+                                            <th>Date Announced</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                        <th>Student I.D</th>
-                                        <th>First Name</th>
-                                        <th>Middle Name</th>
-                                        <th>Last Name</th>
-                                        <th>Action</th>
+                                        <th>Author (Position)</th>
+                                        <th>Message</th>
+                                        <th>Date Announced</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     <?php
                             $query = "SELECT
-                            users.*
+                            announcment.message, 
+                            announcment.date_announced, 
+                            user_role.role_name
                         FROM
+                            announcment
+                            INNER JOIN
                             users
-                        WHERE
-                            users.user_role_id = 2 AND
-                            users.user_position_id = 5 AND
-                            users.user_status_id = 1";
+                            ON 
+                                announcment.announcement_id = users.user_id
+                            INNER JOIN
+                            user_role
+                            ON 
+                                users.user_role_id = user_role.user_role_id";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -70,14 +72,9 @@ include('includes/header.php');
                                 {
                                     ?>
                                     <tr>
-                                        <td><?= $row['school-id']; ?></td>
-                                        <td><?= $row['first_name']; ?></td>
-                                        <td><?= $row['middle_name']; ?></td>
-                                        <td><?= $row['last_name']; ?></td>
-                                        <td><button type="button" class="btn btn-danger btn-sm">  <i class="fa-sharp fa-solid fa-box-archive"></i></button>
-                                        <button type="button" class="btn btn-warning btn-sm">  <i class="fa-sharp fa-solid fa-pen"></i></button>
-                                        </td>
-                                        
+                                    <td><?= $row['role_name']; ?></td>
+                                    <td><?= $row['message']; ?></td>
+                                    <td><?= $row['date_announced']; ?></td>
                                     </tr>
                                     <?php
                                 }
@@ -96,10 +93,6 @@ include('includes/header.php');
                             </div>
                         </div>
                     </div>
-
-
-
-
 
 
 <?php 
