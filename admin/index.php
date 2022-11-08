@@ -63,7 +63,7 @@ include('includes/header.php');
                         </div>
 </div>
 
-
+<?php include('message.php'); ?>
 
 
 

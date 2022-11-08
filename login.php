@@ -39,7 +39,7 @@ if(isset($_SESSION['auth']))
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <a class="small" href="">Forgot Password?</a>
-                                                <button type="submit" name="login_btn2" class="btn btn-primary">Login</button>
+                                                <button type="submit" name="login_btn" class="btn btn-primary">Login</button>
                                             </div>
                                         </form>
                                     </div>

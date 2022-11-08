@@ -2,7 +2,7 @@
 session_start();
 include('admin/config/dbcon.php');
 
-if(isset($_POST['login_btn2']))
+if(isset($_POST['login_btn']))
 {
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
@@ -13,20 +13,20 @@ if(isset($_POST['login_btn2']))
     if(mysqli_num_rows($login_query_run) > 0)
     {
         foreach($login_query_run as $data){
-            $user_id = $data['id'];
-            $user_name = $data['fname'].' '.$data['lname'];
-            $role_as = $data['user_type'];
+            $user_id = $data['user_id'];
+            $full_name = $data['first_name'].' '.$data['last_name'];
+            $role_as = $data['user_role_id'];
         }
 
         $_SESSION['auth'] = true;
         $_SESSION['auth_role'] = "$role_as";
         $_SESSION['auth_user'] = [
             'user_id' =>$user_id,
-            'user_name' =>$user_name,
+            'user_name' =>$full_name,
             'user_email' =>$user_email,
         ];
 
-        if( $_SESSION['auth_role'] == '2')
+        if( $_SESSION['auth_role'] == '1')
         {
             $_SESSION['message'] = "Welcome Administrator!";
             header("Location: admin/index.php");

@@ -30,7 +30,7 @@ include('includes/header.php');
 
         <div class="col-md-12">
 
-            <?php include('message.php'); ?>
+z
             
             <div class="card">
                 <div class="card-header">
