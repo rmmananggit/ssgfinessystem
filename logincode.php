@@ -16,6 +16,7 @@ if(isset($_POST['login_btn']))
             $user_id = $data['user_id'];
             $full_name = $data['first_name'].' '.$data['last_name'];
             $role_as = $data['user_role_id'];
+            $user_email = $data['email'];
         }
 
         $_SESSION['auth'] = true;
