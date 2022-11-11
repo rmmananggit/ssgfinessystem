@@ -44,7 +44,7 @@
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#announce" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-money-bill"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-bullhorn"></i></div>
                                 Announcement
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
@@ -54,9 +54,9 @@
                                     <a class="nav-link" href="#">Edit Announcement</a>
                                 </nav>
                             </div>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                            <a class="nav-link" href="#">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-scroll"></i></div>
+                                Organization Report
                             </a>
                         </div>
                     </div>
