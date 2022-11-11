@@ -4,20 +4,20 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="index.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                                User Account
+                                Student Account
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="user.php">List of User</a>
-                                    <a class="nav-link" href="edit_user.php  ">Edit User</a>
+                                    <a class="nav-link" href="user.php">List of Student</a>
+                                    <a class="nav-link" href="edit_user.php  ">Edit Student</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#officeraccount" aria-expanded="false" aria-controls="collapseLayouts">
@@ -51,7 +51,7 @@
                             <div class="collapse" id="announce" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="announcement.php">Announcement</a>
-                                    <a class="nav-link" href="#">Pay Fines</a>
+                                    <a class="nav-link" href="#">Edit Announcement</a>
                                 </nav>
                             </div>
                             <a class="nav-link" href="tables.html">

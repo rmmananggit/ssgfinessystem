@@ -60,10 +60,7 @@ include('includes/header.php');
                                     <tbody>
                                     <?php
                             $query = "SELECT
-                            users.`school-id`, 
-                            users.first_name, 
-                            users.middle_name, 
-                            users.last_name, 
+                            users.*, 
                             user_status.user_status, 
                             user_role.role_name
                           FROM
@@ -75,7 +72,9 @@ include('includes/header.php');
                             INNER JOIN
                             user_role
                             ON 
-                              users.user_role_id = user_role.user_role_id";
+                              users.user_role_id = user_role.user_role_id
+                          WHERE
+                            users.user_role_id = 2";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -90,8 +89,7 @@ include('includes/header.php');
                                         <td><?= $row['role_name']; ?></td>
                                         <td><?= $row['user_status']; ?></td>
                                         <td><button type="button" class="btn btn-danger btn-sm">  <i class="fa-sharp fa-solid fa-box-archive"></i></button>
-                                        <button type="button" class="btn btn-warning btn-sm">  <i class="fa-sharp fa-solid fa-pen"></i></button>
-                                        </td>
+                                        <a href="edit_user1.php?id=<?=$row['user_id'];?>" class="btn btn-warning btn-sm"><i class="fa-sharp fa-solid fa-pen"></i></a></td>
                                         
                                     </tr>
                                     <?php

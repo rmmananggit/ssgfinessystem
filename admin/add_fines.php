@@ -72,7 +72,6 @@ include('includes/header.php');
                             users
                           WHERE
                             users.user_role_id = 2 AND
-                            users.user_position_id = 5 AND
                             users.user_status_id = 1";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)

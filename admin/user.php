@@ -35,7 +35,7 @@ include('includes/header.php');
                                 <i class="fas fa-table me-1"></i>
                                 List of Students
 
-                                <a class="btn btn-primary float-end btn-sm" data-toggle="modal" data-target="#myModal"><i class="fa-sharp fa-solid fa-user-plus"></i>  Add User</a>
+                                <a class="btn btn-primary float-end btn-sm" data-toggle="modal" data-target="#myModal"><i class="fa-sharp fa-solid fa-user-plus"></i>  Add Student</a>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -64,10 +64,7 @@ include('includes/header.php');
                                     <tbody>
                                     <?php
                             $query = "SELECT
-                            users.`school-id`, 
-                            users.first_name, 
-                            users.middle_name, 
-                            users.last_name, 
+                            users.*, 
                             user_status.user_status, 
                             user_role.role_name
                           FROM
@@ -79,7 +76,9 @@ include('includes/header.php');
                             INNER JOIN
                             user_role
                             ON 
-                              users.user_role_id = user_role.user_role_id";
+                              users.user_role_id = user_role.user_role_id
+                          WHERE
+                            users.user_role_id = 2";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
