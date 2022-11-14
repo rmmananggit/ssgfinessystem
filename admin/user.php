@@ -45,7 +45,6 @@ include('includes/header.php');
                                             <th>First Name</th>
                                             <th>Middle Name</th>
                                             <th>Last Name</th>
-                                            <th>Role</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -56,7 +55,6 @@ include('includes/header.php');
                                         <th>First Name</th>
                                         <th>Middle Name</th>
                                         <th>Last Name</th>
-                                        <th>Role</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                         </tr>
@@ -90,7 +88,6 @@ include('includes/header.php');
                                         <td><?= $row['first_name']; ?></td>
                                         <td><?= $row['middle_name']; ?></td>
                                         <td><?= $row['last_name']; ?></td>
-                                        <td><?= $row['role_name']; ?></td>
                                         <td><?= $row['user_status']; ?></td>
                                         <td> <a href="view_user.php?id=<?=$row['user_id'];?>" class="btn btn-info btn-sm"><i class="fa-sharp fa-solid fa-eye"></i></a></td>
                                     </tr>
@@ -165,6 +162,11 @@ include('includes/header.php');
                                 <div class="col-md-12 mb-3">
                                     <label for=""><strong>Mobile Number</strong></label>
                                     <input required type="text" name="mobilenumber" class="form-control">
+                                </div>
+
+                                <div class="col-md-12 mb-3">
+                                    <label for=""><strong>Fines</strong></label>
+                                    <input required type="text" name="fines" class="form-control">
                                 </div>
 
                                 <div class="col-md-12 mb-3">

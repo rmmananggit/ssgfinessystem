@@ -60,6 +60,58 @@ if(isset($_POST['update_btn']))
 
 }
 
+if(isset($_POST['payfines_btn']))
+{
+    $id = $_POST['user_id'];
+    $payment = $_POST['pay'];
+    $date = date('Y-m-d', strtotime($_POST['date']));
+
+    $query= "SELECT `fines`, `balance` FROM users WHERE user_id = '$id' ";
+    $query_run = $con->query($query);
+    $data = $query_run->fetch_assoc();
+    $fee = $data['balance'];
+
+    if($fee['balance'] > 0)
+    {
+        $query2 = "INSERT INTO `fines`(`fines_id`, `fines_fee`, `date`) VALUES ('$id','$payment','$date')";
+        $con->query($query2);
+        
+        $sq1 = "SELECT `fines_fee` FROM `fines` WHERE fines_id = '$id' ";
+        $sq1_run = $con->query($sq1);
+        $row = $sq1_run->fetch_assoc();
+        $balance = $row['fines_fee'];
+        $newbal = ($fee - $balance);
+
+        $sq3 = "UPDATE `users` SET `balance`='$newbal' WHERE user_id = '$id'";
+        $con->query($sq3);
+
+        if($con)
+        {
+            {
+                $_SESSION['message'] = "Update Successfully!    ";
+                header('Location: fines.php');
+                exit(0);
+            }
+        }
+        else
+        {
+            $_SESSION['message'] = "Error! Something went wrong!";
+            header('Location: fines.php');
+            exit(0);
+        }
+    
+    }
+}else{
+    $_SESSION['message'] = "Error! Something went wrong!";
+    header('Location: fines.php');
+    exit(0);
+}
+
+
+
+
+
+
 
 
 if(isset($_POST['add_student']))
@@ -71,30 +123,12 @@ if(isset($_POST['add_student']))
     $lname = $_POST['lname'];
     $email = $_POST['email'];
     $mobile = $_POST['mobilenumber'];
-    $fines = "0";
-    $balance = "0";
+    $fines = $_POST['fines'];
+    $balance = $_POST['fines'];
     $user_role_id = $_POST['role_as'];
     $user_status_id= $_POST['status'];
     $password = "Password@123";
 
-
-    // $query = "INSERT INTO users (fname,lname,email,password,role_as,status) VALUES ('$fname','$lname','$email','$password','$role_as','$status')";
-    // $query_run = mysqli_query($con, $query);
-
-    // if($query_run)
-    // {
-    //     $_SESSION['message'] = "User Added Successfully";
-    //     header('Location: view_register.php');
-    //     exit(0);
-    // }
-    // else
-    // {
-    //     $_SESSION['message'] = "Something went wrong!";
-    //     header('Location: view_register.php');
-    //     exit(0);
-    // }
-
- //check email
         $checkemail = "SELECT email FROM users WHERE email='$email'";
         $checkemail_run = mysqli_query($con,$checkemail);
 
@@ -105,7 +139,7 @@ if(isset($_POST['add_student']))
             exit(0);
         }
         else{
-            $query = "INSERT INTO `users`(`school-id`, `username`, `password`, `first_name`, `middle_name`, `last_name`, `email`, `mobile_number`, `fines`, `balance`, `user_role_id`, `user_position_id`, `user_status_id`) VALUES ('$schoolid','$username','$password','$fname','$mname','$lname','$email','$mobile','$fines','$balance','$user_role_id','$user_position_id','$user_status_id')";
+            $query = "INSERT INTO `users`(`school-id`, `username`, `password`, `first_name`, `middle_name`, `last_name`, `email`, `mobile_number`, `fines`, `balance`, `user_role_id`, `user_status_id`) VALUES ('$schoolid','$username','$password','$fname','$mname','$lname','$email','$mobile','$fines','$balance','$user_role_id','$user_status_id')";
             $query_run = mysqli_query($con, $query);
 
             if($query_run)

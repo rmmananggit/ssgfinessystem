@@ -75,7 +75,7 @@ include('includes/header.php');
                             ON 
                                 users.user_status_id = user_status.user_status_id
                         WHERE
-                            users.user_role_id = 1";
+                            users.user_role_id != 2";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -88,8 +88,7 @@ include('includes/header.php');
                                         <td><?= $row['middle_name']; ?></td>
                                         <td><?= $row['last_name']; ?></td>
                                         <td><?= $row['role_name']; ?></td>
-                                        <td><?= $row['user_status']; ?></td>
-                                        <td> <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#fines"><i class="fa-sharp fa-solid fa-eye"></i></a></a></td>
+                                        <td> <a class="btn btn-info btn-sm"><i class="fa-sharp fa-solid fa-eye"></i></a></a></td>
                                     </tr>
                                     <?php
                                 }
@@ -110,37 +109,6 @@ include('includes/header.php');
                     </div>
 
 
-
-
-
-
-                    
-<div class="container">
-  <!-- The Modal -->
-  <div class="modal fade" id="fines">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h5>Take Fee</h5>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-        
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-  
-</div>
 
 
 <?php 

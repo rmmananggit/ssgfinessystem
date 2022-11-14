@@ -38,7 +38,6 @@
                             </a>
                             <div class="collapse" id="collapsefines" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="add_fines.php">Add Fines</a>
                                     <a class="nav-link" href="fines.php">Pay Fines</a>
                                 </nav>
                             </div>
