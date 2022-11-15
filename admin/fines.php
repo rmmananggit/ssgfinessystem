@@ -61,6 +61,7 @@ include('includes/header.php');
                     <tbody>
                     <?php
             $query = "SELECT
+            users.`user_id`,
             users.`school-id`, 
             users.first_name, 
             users.middle_name, 

@@ -21,7 +21,6 @@ include('includes/header.php');
   </div>
 </div>
 
-<?php include('message.php'); ?>
 
 
 <div class="container-fluid px-4">
@@ -34,9 +33,12 @@ include('includes/header.php');
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
                                 List of Students
-
                                 <a class="btn btn-primary float-end btn-sm" data-toggle="modal" data-target="#myModal"><i class="fa-sharp fa-solid fa-user-plus"></i>  Add Student</a>
                             </div>
+
+                            <?php include('message.php'); ?>
+
+                            
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>

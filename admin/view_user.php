@@ -96,19 +96,57 @@ include('includes/header.php');
                                 <hr class="mt-2 mb-3"/>
 
                                 <h5>Payment History</h5>
-
-
+                                <div class="container">       
+                                <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                <th>Date</th>
+                                <th>Payment</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                            $query = "SELECT
+                            fines.fines_fee, 
+                            fines.date
+                        FROM
+                            fines
+                        WHERE fines_id = '$id'";
+                            $query_run = mysqli_query($con, $query);
+                            if(mysqli_num_rows($query_run) > 0)
+                            {
+                                foreach($query_run as $row)
+                                {
+                                    ?>
+                                    <tr>
+                                    <td><?= $row['date']; ?></td>
+                                        <td><?= $row['fines_fee']; ?></td>
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                            ?>
+                                <tr>
+                                    <td colspan="6">No Record Found</td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                                    </tbody>
+                                </table>
+                                </div>
 
                                 <hr class="mt-2 mb-3"/>
-
                                 <h2></h2>
-                                <div class="col-md-4 mb-3">
-                                <label for=""><strong>Fines</strong></label>
-                                <p class="form-control"><i class="fa-sharp fa-solid fa-peso-sign"></i><?=$user['fines'];?></p>
+                                <div class="col-md-12 mb-3">
+                                <label for=""><strong>Fines:</strong></label>
+                                <i class="fa-sharp fa-solid fa-peso-sign"></i><?=$user['fines'];?>
                                 </div>
-                                <div class="col-md-4 mb-3">
-                                <label for=""><strong>Balance</strong></label>
-                                <p class="form-control"><i class="fa-sharp fa-solid fa-peso-sign"></i><?=$user['balance'];?></p>
+                                <div class="col-md-12 mb-3">
+                                <div class="col-md-12 mb-3">
+                                <label for=""><strong>Balance:</strong></label>
+                               <i class="fa-sharp fa-solid fa-peso-sign"></i><?=$user['balance'];?>
                                 </div>
                             </div>
                             </div>

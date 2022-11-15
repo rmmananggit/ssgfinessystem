@@ -56,61 +56,7 @@ if(isset($_POST['update_btn']))
         header('Location: view_register.php');
         exit(0);
     }
-
-
 }
-
-if(isset($_POST['payfines_btn']))
-{
-    $id = $_POST['user_id'];
-    $payment = $_POST['pay'];
-    $date = date('Y-m-d', strtotime($_POST['date']));
-
-    $query= "SELECT `fines`, `balance` FROM users WHERE user_id = '$id' ";
-    $query_run = $con->query($query);
-    $data = $query_run->fetch_assoc();
-    $fee = $data['balance'];
-
-    if($fee['balance'] > 0)
-    {
-        $query2 = "INSERT INTO `fines`(`fines_id`, `fines_fee`, `date`) VALUES ('$id','$payment','$date')";
-        $con->query($query2);
-        
-        $sq1 = "SELECT `fines_fee` FROM `fines` WHERE fines_id = '$id' ";
-        $sq1_run = $con->query($sq1);
-        $row = $sq1_run->fetch_assoc();
-        $balance = $row['fines_fee'];
-        $newbal = ($fee - $balance);
-
-        $sq3 = "UPDATE `users` SET `balance`='$newbal' WHERE user_id = '$id'";
-        $con->query($sq3);
-
-        if($con)
-        {
-            {
-                $_SESSION['message'] = "Update Successfully!    ";
-                header('Location: fines.php');
-                exit(0);
-            }
-        }
-        else
-        {
-            $_SESSION['message'] = "Error! Something went wrong!";
-            header('Location: fines.php');
-            exit(0);
-        }
-    
-    }
-}else{
-    $_SESSION['message'] = "Error! Something went wrong!";
-    header('Location: fines.php');
-    exit(0);
-}
-
-
-
-
-
 
 
 
@@ -154,18 +100,62 @@ if(isset($_POST['add_student']))
                 header("Location: user.php");
                 exit(0);
             }
-        }
-
-    
-    
+        }   
 }
-else
+?>
+
+
+<?php
+if(isset($_POST['payfines_btn']))
 {
-    header("Location: user.php");
+    $id = $_POST['user_id'];
+    $payment = $_POST['pay'];
+    $date = date('Y-m-d', strtotime($_POST['date']));
+
+
+    $query= "SELECT `fines`, `balance` FROM users WHERE user_id = '$id' ";
+    $query_run = $con->query($query);
+    $data = $query_run->fetch_assoc();
+    $fee = $data['fines'];
+
+    if($fee['balance'] > 0)
+    {
+        $query2 = "INSERT INTO `fines`(`fines_id`, `fines_fee`, `date`) VALUES ('$id','$payment','$date')";
+        $con->query($query2);
+        
+        $sq1 = "SELECT sum(fines_fee) as totalpaid FROM fines WHERE `fines_id` = '$id'";
+        $sq1_run = $con->query($sq1);
+        $row = $sq1_run->fetch_assoc();
+        $balance = $row['totalpaid'];
+        $newbal = ($fee - $balance);
+
+        $sq3 = "UPDATE `users` SET `balance`='$newbal' WHERE user_id = '$id'";
+        $con->query($sq3);
+
+        if($con)
+        {
+            {
+                $_SESSION['message'] = "Update Successfully!    ";
+                header('Location: fines.php');
+                exit(0);
+            }
+        }
+        else
+        {
+            $_SESSION['message'] = "Error! Something went wrong!";
+            header('Location: fines.php');
+            exit(0);
+        }
+    
+    }
+}else{
+    $_SESSION['message'] = "Error! Something went wrong!";
+    header('Location: fines.php');
     exit(0);
 }
-
-
-
-
 ?>
+
+
+
+
+

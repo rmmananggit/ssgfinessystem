@@ -18,6 +18,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="user.php">List of Student</a>
                                     <a class="nav-link" href="edit_user.php  ">Edit Student</a>
+                                    <a class="nav-link" href="#">Archive</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#officeraccount" aria-expanded="false" aria-controls="collapseLayouts">

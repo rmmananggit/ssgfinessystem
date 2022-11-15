@@ -121,10 +121,6 @@ include('includes/header.php');
                                 <label for=""><strong>Fines</strong></label>
                                     <p class="form-control"><i class="fa-sharp fa-solid fa-peso-sign"></i><?=$user['fines'];?></p>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                <label for=""><strong>Balance</strong></label>
-                                    <p class="form-control"><i class="fa-sharp fa-solid fa-peso-sign"></i><?=$user['balance'];?></p>
-                                </div>
                                 <div class="col-md-12 mb-3">
                                     <button type="submit" name="update_btn" class="btn btn-primary float-end">Edit User</button>
                                 </div>
