@@ -34,32 +34,40 @@ if(isset($_POST['logout_btn']))
     header("Location: ../login.php");
     exit(0);
 }
+?>
 
-
-
+<?php
 if(isset($_POST['update_btn']))
 {
     $user_id = $_POST['user_id'];
+    $schoolid = $_POST['schoolid'];
     $fname = $_POST['fname'];
+    $mname = $_POST['mname'];
     $lname = $_POST['lname'];
+    $uname = $_POST['username'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
-    $role_as = $_POST['role_as'];
-    $status = $_POST['status'] == true ? '1':'0';
+    $mobile = $_POST['mobile_number'];
+    $status = $_POST['status'];
+    $user_role_id = $_POST['role_as'];
 
-    $query = "UPDATE users SET fname='$fname',lname='$lname',email='$email',password='$password', role_as='$role_as',status='$status' WHERE id='$user_id' ";
+    $query = "UPDATE `users` SET `school-id`='$schoolid',`username`='$uname', `first_name`='$fname',`middle_name`='$mname',`last_name`='$lname',`email`='$email',`mobile_number`='$mobile', `user_role_id`='$user_role_id',`user_status_id`='$status' WHERE  `user_id`='$user_id'";
     $query_run = mysqli_query($con,$query);
 
     if($query_run)
     {
         $_SESSION['message'] = "Updated Successfully";
-        header('Location: view_register.php');
+        header('Location: user.php');
+        exit(0);
+    }
+    else{
+        $_SESSION['message'] = "Error! SOMETHING WENT WRONG!";
+        header('Location: user.php');
         exit(0);
     }
 }
+?>
 
-
-
+<?php
 if(isset($_POST['add_student']))
 {
     $schoolid = $_POST['schoolid'];

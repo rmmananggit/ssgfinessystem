@@ -58,6 +58,7 @@ include('includes/header.php');
                                     <tbody>
                                     <?php
                             $query = "SELECT
+                            users.`user_id`,
                             users.`school-id`, 
                             users.first_name, 
                             users.middle_name, 
@@ -75,7 +76,7 @@ include('includes/header.php');
                             ON 
                                 users.user_status_id = user_status.user_status_id
                         WHERE
-                            users.user_role_id != 2";
+                            users.user_role_id != 2 AND users.user_role_id != 5";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -88,7 +89,7 @@ include('includes/header.php');
                                         <td><?= $row['middle_name']; ?></td>
                                         <td><?= $row['last_name']; ?></td>
                                         <td><?= $row['role_name']; ?></td>
-                                        <td> <a class="btn btn-info btn-sm"><i class="fa-sharp fa-solid fa-eye"></i></a></a></td>
+                                        <td> <a href="view_officer.php?id=<?=$row['user_id'];?>" class="btn btn-info btn-sm"><i class="fa-sharp fa-solid fa-eye"></i></a></td>
                                     </tr>
                                     <?php
                                 }

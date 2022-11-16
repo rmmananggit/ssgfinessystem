@@ -26,8 +26,8 @@ include('includes/header.php');
         <h4 class="mt-4">Students</h4>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Dashboard</li>
-            <li class="breadcrumb-item active">Students</li>
-            <li class="breadcrumb-item">Edit Student</li>
+            <li class="breadcrumb-item active">Officer</li>
+            <li class="breadcrumb-item">Edit Officer</li>
             
         </ol>
         <div class="row">
@@ -57,12 +57,6 @@ include('includes/header.php');
 
                             <div class="container-fluid">
                             <div class="row">
-
-                            <div class="col-md-12 mb-3">
-                                    <label for=""><strong>School I.D</strong></label>
-                                    <input type="text" name="schoolid" value="<?= $user['school-id']; ?>" class="form-control">
-                                </div>
-
                                 <div class="col-md-4 mb-3">
                                     <label for=""><strong>First Name</strong></label>
                                     <input type="text" name="fname" value="<?= $user['first_name']; ?>" class="form-control">
@@ -118,7 +112,7 @@ include('includes/header.php');
 
                                 <h2></h2>
                                 <div class="col-md-12 mb-3">
-                                    <button type="submit" name="update_btn" class="btn btn-primary float-end">Edit User</button>
+                                    <button type="submit" name="update_btn" class="btn btn-primary float-end">Submit</button>
                                 </div>
 
                             </div>
